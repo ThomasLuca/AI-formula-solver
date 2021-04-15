@@ -6,7 +6,7 @@ from keras.models import load_model
 
 class Predictor:
     def __init__(self):
-        self.model = load_model('./digit_recognizer.h5')
+        self.model = load_model('../digit_recognizer.h5')
     
     def format_image(self, img):
             img = cv2.resize(img, (28, 28), interpolation = cv2.INTER_AREA)
