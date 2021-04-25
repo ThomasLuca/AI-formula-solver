@@ -1,14 +1,13 @@
 import warnings
 warnings.filterwarnings('ignore')
 import cv2
-import numpy as np
-from keras.models import load_model
 from camera import Camera
 from extractChars import Extractor
 from predictor import Predictor
 
 camera = Camera(600, 140)
 imgBinary = camera.takeImage()
+
 
 extractor = Extractor(imgBinary)
 contours = extractor.getContours()
