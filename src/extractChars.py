@@ -8,6 +8,7 @@ class Extractor:
     def getContours(self):
         contours,hierarchy = cv2.findContours(self.imgBinary, cv2.RETR_LIST,cv2.CHAIN_APPROX_SIMPLE)
         return contours
+
     
     def extract(self, contours):
         extractions = []
@@ -23,7 +24,9 @@ class Extractor:
                     # MNIST images have digits in 20x20 centered in a 28x28 frame
                     roiSmall = cv2.resize(roi,(20, 20))
                     roiMargin = cv2.copyMakeBorder(roiSmall, 4, 4, 4, 4, cv2.BORDER_CONSTANT, value=[255,255,255])
-                    extractions.append((int(x), roiMargin))
-        extractions.sort()
+                    extractions.append({ "x": int(x), "img": roiMargin})
+        def sortX(e):
+            return e["x"]
+        extractions.sort(key=sortX)
         return extractions
     
