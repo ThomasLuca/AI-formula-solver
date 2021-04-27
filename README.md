@@ -20,6 +20,12 @@ conda install -c conda-forge opencv
 conda install -c conda-forge keras 
 ```
 
+### Tensorflow
+
+```zsh
+conda install -c conda-forge tensorflow 
+```
+
 ## Run program
 
 Run the following command in the right conda environment
