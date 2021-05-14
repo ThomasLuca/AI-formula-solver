@@ -6,7 +6,7 @@ from keras.models import load_model
 
 class Predictor:
     def __init__(self):
-        self.model = load_model('../digit_recognizer.h5')
+        self.model = load_model('../chars/digit_recognizer.h5')
     
     def format_image(self, img):
         img = cv2.resize(img, (28, 28), interpolation = cv2.INTER_AREA)
@@ -22,4 +22,10 @@ class Predictor:
         classes = certainty
         sorted = np.sort(certainty)[::-1]
         digit = np.where(classes == sorted[0])[0][0]
+        if digit == 11:
+            digit = "X"
+        if digit == 10:
+            digit = "+"
+        if digit == 12:
+            digit = "-"
         return (digit, round(sorted[0]*100, 2))
