@@ -28,4 +28,4 @@ class Predictor:
             digit = "+"
         if digit == 12:
             digit = "-"
-        return (digit, round(sorted[0]*100, 2))
+        return (digit)
