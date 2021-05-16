@@ -6,7 +6,7 @@ from keras.models import load_model
 
 class Predictor:
     def __init__(self, digits):
-        self.model = load_model('../digit_recognizer.h5')
+        self.model = load_model('./digit_recognizer.h5')
         self.digits = digits
         self.predicted = []
     
