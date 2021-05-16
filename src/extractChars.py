@@ -19,19 +19,23 @@ class Extractor:
                     side = int(np.maximum(h, w))
                     xSquare = int(x + (w - side)/2)
                     ySquare = int(y + (h - side)/2)
+                    print(x)
+                    print(xSquare)
                     # Roi = Region Of Interest
                     roi = self.imgBinary[ySquare:ySquare+side,xSquare:xSquare+side]
                     # MNIST images have digits in 20x20 centered in a 28x28 frame
                     roiSmall = cv2.resize(roi,(20, 20))
                     roiMargin = cv2.copyMakeBorder(roiSmall, 4, 4, 4, 4, cv2.BORDER_CONSTANT, value=[255,255,255])
                     extractions.append({ 
-                        "x": int(x),
-                        "height": side,
+                        "x1": xSquare,
+                        "y1": ySquare,
+                        "x2": xSquare + side,
+                        "y2": ySquare + side,
+                        "side": side,
                         "img": roiMargin
                     })
 
         def sortX(e):
-            return e["x"]
+            return e["x1"]
         extractions.sort(key=sortX)
         return extractions
-    

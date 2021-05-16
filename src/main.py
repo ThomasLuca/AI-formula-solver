@@ -12,12 +12,6 @@ extractor = Extractor(imgBinary)
 contours = extractor.getContours()
 digits = extractor.extract(contours)
 
-predictor = Predictor()
-predictor.predictCharacters(digits)
-
-
-# for digit in digits:
-#     print(predictor.predictCharacters(digit["img"]))
-#     cv2.imshow("single", digit["img"])
-#     key = cv2.waitKey(0)
-
+predictor = Predictor(digits)
+predictor.predictCharacters()
+predictionResults = predictor.getResults()
