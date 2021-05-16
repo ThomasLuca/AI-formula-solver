@@ -13,17 +13,9 @@ extractor = Extractor(imgBinary)
 contours = extractor.getContours()
 digits = extractor.extract(contours)
 
-predictor = Predictor()
+predictor = Predictor(digits)
+predictor.predictCharacters()
+predictionResults = predictor.getResults()
+
 calculate = Calculate()
-
-
-for digit in digits:
-    number = predictor.predict(digit["img"])
-    numbers.append(number)
-    print(number)
-    print(calculate.calcroots(numbers))
-    cv2.imshow("single", digit["img"])
-    key = cv2.waitKey(0)
-
-
-
+print (calculate.calcroots(predictionResults))
