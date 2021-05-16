@@ -13,10 +13,11 @@ contours = extractor.getContours()
 digits = extractor.extract(contours)
 
 predictor = Predictor()
+predictor.predictCharacters(digits)
 
 
-for digit in digits:
-    print(predictor.predict(digit["img"]))
-    cv2.imshow("single", digit["img"])
-    key = cv2.waitKey(0)
+# for digit in digits:
+#     print(predictor.predictCharacters(digit["img"]))
+#     cv2.imshow("single", digit["img"])
+#     key = cv2.waitKey(0)
 
