@@ -19,8 +19,6 @@ class Extractor:
                     side = int(np.maximum(h, w))
                     xSquare = int(x + (w - side)/2)
                     ySquare = int(y + (h - side)/2)
-                    print(x)
-                    print(xSquare)
                     # Roi = Region Of Interest
                     roi = self.imgBinary[ySquare:ySquare+side,xSquare:xSquare+side]
                     # MNIST images have digits in 20x20 centered in a 28x28 frame
