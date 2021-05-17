@@ -4,7 +4,7 @@ import cv2
 from camera import Camera
 from extractChars import Extractor
 from predictor import Predictor
-from calculate import Calculate
+from calculator import Calculator
 
 camera = Camera(600, 140)
 imgBinary = camera.takeImage()
@@ -17,5 +17,5 @@ predictor = Predictor(digits)
 predictor.predictCharacters()
 predictionResults = predictor.getResults()
 
-calculate = Calculate()
-print (calculate.calcroots(predictionResults))
+calculator = Calculator(predictionResults)
+calculator.calculateX()

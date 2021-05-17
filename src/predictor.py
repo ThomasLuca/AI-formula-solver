@@ -8,7 +8,7 @@ class Predictor:
     def __init__(self, digits):
         self.model = load_model('./digit_recognizer.h5')
         self.digits = digits
-        self.predicted = []
+        self.predicted = ""
     
     def format_image(self, img):
         img = cv2.resize(img, (28, 28), interpolation = cv2.INTER_AREA)
@@ -37,16 +37,18 @@ class Predictor:
                 result = "²"                
             
             if self.isValidExtraction(result, index):
-                self.predicted.append(result)
+                self.predicted += str(result)
+                # .append(str(result))
                 height = digit["side"]
-                print(f"{result} : {round(sorted[0]*100, 2)}% - {height}")
+                print(f"{result} : {round(sorted[0]*100, 2)}%")
 
                 cv2.imshow("single", digit["img"])
                 key = cv2.waitKey(0)
             index += 1
+        print(self.predicted)
 
     def isSquare(self, digit):
-        if len(self.predicted) and self.predicted[-1] == "X" and digit["side"] < 40:
+        if len(self.predicted) and self.predicted[len(self.predicted) - 1] == "X" and digit["side"] < 40:
             return True
         return False
     
