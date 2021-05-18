@@ -1,6 +1,5 @@
 import warnings
 warnings.filterwarnings('ignore')
-import cv2
 from camera import Camera
 from extractChars import Extractor
 from predictor import Predictor

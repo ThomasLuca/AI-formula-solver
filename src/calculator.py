@@ -1,7 +1,4 @@
-from os import sep
-import warnings
-warnings.filterwarnings('ignore')
-import numpy as np
+import math
 
 
 class Calculator:
@@ -11,7 +8,18 @@ class Calculator:
     def calculateX(self):
       seperated = self.separate(self.formula)
       print(seperated)
-      print(self.extractABC(seperated))
+      a, b, c = self.extractABC(seperated)
+      print(f"a: {a}, b: {b}, c: {c}")
+      
+      D =  pow(b, 2) - 4*a*c 
+      if D < 0:
+        print("Roots are complex")
+      else:
+        x1 = (-b + math.sqrt(abs(D))) / (2*a)
+        x2 = (-b - math.sqrt(abs(D))) / (2*a)
+        print(f"X1 = {x1}")
+        print(f"X2 = {x2}")
+
     
     def separate(self, f):
       separated = []
@@ -51,8 +59,4 @@ class Calculator:
               sym = e
           else:
               c = int(sym + e)
-      return [a, b, c]
-
-    # def calcroots(self, numbers):
-    #   coeff.append(numbers[0]).append(numbers[4]).append(numbers[7])
-    #   return np.roots(coeff)
+      return (a, b, c)

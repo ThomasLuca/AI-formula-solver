@@ -38,8 +38,6 @@ class Predictor:
             
             if self.isValidExtraction(result, index):
                 self.predicted += str(result)
-                # .append(str(result))
-                height = digit["side"]
                 print(f"{result} : {round(sorted[0]*100, 2)}%")
 
                 cv2.imshow("single", digit["img"])
