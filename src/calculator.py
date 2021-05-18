@@ -20,7 +20,8 @@ class Calculator:
       for i in range(len(f)):
           c = f[i]
           if c == "-" or c == "+" or i == len(f)-1:
-              separated.append(temp)
+              if temp != '':
+                separated.append(temp)
               separated.append(c)
               temp = ""
           else:
