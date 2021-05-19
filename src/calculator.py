@@ -7,7 +7,6 @@ class Calculator:
 
     def calculateX(self):
       seperated = self.separate(self.formula)
-      print(seperated)
       a, b, c = self.extractABC(seperated)
       print(f"a: {a}, b: {b}, c: {c}")
       

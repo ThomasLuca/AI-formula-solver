@@ -1,5 +1,9 @@
 # AI formula solver
 
+## Demo
+
+![demo](./assets/demo.gif)
+
 ## Dependencies
 
 ### Numpy
