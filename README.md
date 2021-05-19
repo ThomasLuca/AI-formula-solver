@@ -4,6 +4,18 @@
 
 ![demo](./assets/demo.gif)
 
+## Manual
+
+1. Run the program inside the right conda environnement:
+
+    ```zsh
+    python3 ./src/main.py
+    ```
+
+2. Line-up the formula inside the green box.
+3. Press enter to take the image.
+4. Press any key to cycle through the different characters.
+
 ## Dependencies
 
 ### Numpy
@@ -28,12 +40,4 @@ conda install -c conda-forge keras
 
 ```zsh
 conda install -c conda-forge tensorflow 
-```
-
-## Run program
-
-Run the following command in the right conda environment
-
-```zsh
-python3 ./src/main.py
 ```

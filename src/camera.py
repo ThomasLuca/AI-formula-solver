@@ -31,7 +31,7 @@ class Camera:
             cv2.imshow('Webcam',frame)
             rval, frame = self.cap.read()
             key = cv2.waitKey(20)
-            if key == 49: # Nr 1, take a Photo
+            if key == 13: # Enter to take a Photo
                 img = "img_{}.png".format(imgNr)
                 frame = frame[self.coordinates["yStart"]: self.coordinates["yEnd"], self.coordinates["xStart"]: self.coordinates["xEnd"]]
                 cv2.imwrite(img, frame)
