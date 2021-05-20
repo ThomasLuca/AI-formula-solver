@@ -26,17 +26,20 @@ class Calculator:
 
       for i in range(len(f)):
           c = f[i]
-          if c == "-" or c == "+" or i == len(f)-1:
-              if temp != '':
-                separated.append(temp)
-              separated.append(c)
-              temp = ""
+          if c == "-" or c == "+":
+            if temp != '':
+              separated.append(temp)
+            separated.append(c)
+            temp = ""
+          elif i == len(f)-1:
+            temp += c
+            separated.append(temp)
           else:
-              temp += c
+            temp += c
       
       if '' in separated:
         separated.remove('')
-
+      print(separated)
       return separated
       
     def extractABC(self, seperated):
